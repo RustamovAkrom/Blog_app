@@ -15,7 +15,9 @@
             {% if posts %}
                 {% for post in posts %}
                 <article class="media content-section">
-                    <img class="rounded-circle article-img" src="media/{{ post.author.avatar }}">
+                    <a href="{{ post.author.avatar.url }}">
+                      <img class="rounded-circle article-img" src="{{ post.author.avatar.url }}">
+                    </a>
                     <div class="media-body">
                       <div class="article-metadata">
                         <a class="mr-2" href="{% url 'user_posts' %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>

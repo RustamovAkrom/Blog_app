@@ -36,7 +36,7 @@ class RegisterPageView(View):
             messages.success(request, "User succesfully registered")
             return redirect("login")
         else:
-            messages.error(request, 'Error registered!')
+            messages.warning(request, 'Error registered!')
             return render(request, "blog/register.html", { "form":form })
 
 
@@ -109,8 +109,6 @@ class UserProfilePageView(LoginRequiredMixin, View):
 
         return render(request, 'blog/user_posts.html', {
             "posts":posts,
-            "first_name":request.user.first_name,
-            "last_name":request.user.last_name
         })
 
 

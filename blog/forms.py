@@ -15,7 +15,7 @@ class LoginForm(forms.Form):
 class RegisterForm(forms.ModelForm):
     password1   = forms.CharField(max_length=28, widget=forms.PasswordInput(attrs={"id":"password", "type":"password"}))
     password2   = forms.CharField(max_length=28, widget=forms.PasswordInput(attrs={"id":"password", "type":"password"}))
-    avatar      = forms.FileField()
+    avatar      = forms.FileField(label='avatars')
 
 
     def save(self, commit = True):
@@ -37,7 +37,7 @@ class RegisterForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = ("username", "first_name", "last_name", "password1", "password2", "email")
+        fields = ("username", "first_name", "last_name", "password1", "password2", "email", "avatar")
 
 
 class PostCreateForm(forms.ModelForm):

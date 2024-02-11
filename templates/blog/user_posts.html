@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-{% block title %} Home page {% endblock %}
+{% block title %} User posts {% endblock %}
 
 {% block content %}
     <main role="main" class="container">
@@ -15,14 +15,14 @@
             {% if post %}
             <h1 class="mb-3">Posts {{ request.user.first_name }} {{ request.user.last_name }}</h1>
             {% else %}
-            <h3>Your posts are not yet available</h3>
             <a href="{% url 'post_form' %}"><h3 style="color: blue;"><p>Create post</p></h3></a>
             {% endif %}
-
         
             {% for post in posts %}
              <article class="media content-section">
-                <img class="rounded-circle article-img" src="{{ post.author.avatar.url }}">
+              <a href="{{ post.author.avatar.url }}">
+                <img class="rounded-circle article-img" src="{{ post.author.avatar.url }}" alt="error in img">
+              </a>
               <div class="media-body">
                 <div class="article-metadata">
                   <a class="mr-2" href="{% url 'user_posts' %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
